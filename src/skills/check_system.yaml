@@ -1,0 +1,19 @@
+ 1: name: check_system
+ 2: description: "Check system status including disk, memory, and CPU usage"
+ 3: category: system
+ 4: version: "1.0"
+ 5: steps:
+ 6:   - name: "Check disk usage"
+ 7:     tool: shell
+ 8:     command: "df -h / | tail -1"
+ 9:   - name: "Check memory usage"
+10:     tool: shell
+11:     command: "free -h | grep Mem"
+12:   - name: "Check CPU info"
+13:     tool: shell
+14:     command: "nproc && cat /proc/cpuinfo | grep 'model name' | head -1"
+15: triggers:
+16:   - "系统状态"
+17:   - "system status"
+18:   - "系统检查"
+19:   - "check system"
