@@ -211,6 +211,16 @@ tempCodeRunnerFile.py
 
 # Marimo
 marimo/_static/
+
+ 1: __pycache__/
+ 2: *.pyc
+ 3: *.pyo
+ 4: .env
+ 5: data/memory.db
+ 6: data/minibot.log
+ 7: *.egg-info/
+ 8: dist/
+ 9: build/
 marimo/_lsp/
 __marimo__/
 
