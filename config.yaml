@@ -1,59 +1,59 @@
- 1: # MiniBot Configuration
- 2: 
- 3: # Lark (Feishu) gateway
- 4: lark:
- 5:   app_id: "${LARK_APP_ID}"
- 6:   app_secret: "${LARK_APP_SECRET}"
- 7: 
- 8: # Model providers (ordered by priority for fallback)
- 9: models:
-10:   providers:
-11:     - name: openai
-12:       api_key: "${OPENAI_API_KEY}"
-13:       base_url: "${OPENAI_BASE_URL}"
-14:       models:
-15:         chat: gpt-4o-mini
-16:         embed: text-embedding-3-small
-17:     - name: gemini
-18:       api_key: "${GEMINI_API_KEY}"
-19:       models:
-20:         chat: gemini-1.5-flash
-21:         embed: text-embedding-004
-22:     - name: nvidia
-23:       api_key: "${NVIDIA_API_KEY}"
-24:       models:
-25:         embed: nvidia/nv-embedqa-e5-v5
-26:   default_provider: openai
-27: 
-28: # Memory settings
-29: memory:
-30:   db_path: "./data/memory.db"
-31:   top_k: 5
-32:   decay_rate: 0.02        # daily decay rate
-33:   archive_threshold: 0.1   # score below this gets archived
-34:   cleanup_days: 90         # auto-delete archived memories older than this
-35: 
-36: # Agent settings
-37: agent:
-38:   max_iterations: 20
-39:   timeout_minutes: 30
-40:   reflection_max_rounds: 3
-41:   tot_branches: 3
-42:   tot_depth: 3
-43: 
-44: # Tool settings
-45: tools:
-46:   shell_timeout: 30        # seconds
-47:   output_max_bytes: 10240  # 10KB
-48:   work_dir: "${MINIBOT_WORK_DIR}"
-49:   search_backend: tavily   # tavily, searxng, google
-50:   search_api_key: "${TAVILY_API_KEY}"
-51: 
-52: # Skill settings
-53: skills:
-54:   dir: "./skills"
-55: 
-56: # Logging
-57: logging:
-58:   level: INFO
-59:   file: "./data/minibot.log"
+# MiniBot Configuration
+
+# Lark (Feishu) gateway
+lark:
+  app_id: "${LARK_APP_ID}"
+  app_secret: "${LARK_APP_SECRET}"
+
+# Model providers (ordered by priority for fallback)
+models:
+  providers:
+    - name: openai
+      api_key: "${OPENAI_API_KEY}"
+      base_url: "${OPENAI_BASE_URL}"
+      models:
+        chat: gpt-4o-mini
+        embed: text-embedding-3-small
+    - name: gemini
+      api_key: "${GEMINI_API_KEY}"
+      models:
+        chat: gemini-1.5-flash
+        embed: text-embedding-004
+    - name: nvidia
+      api_key: "${NVIDIA_API_KEY}"
+      models:
+        embed: nvidia/nv-embedqa-e5-v5
+  default_provider: openai
+
+# Memory settings
+memory:
+  db_path: "./data/memory.db"
+  top_k: 5
+  decay_rate: 0.02        # daily decay rate
+  archive_threshold: 0.1   # score below this gets archived
+  cleanup_days: 90         # auto-delete archived memories older than this
+
+# Agent settings
+agent:
+  max_iterations: 20
+  timeout_minutes: 30
+  reflection_max_rounds: 3
+  tot_branches: 3
+  tot_depth: 3
+
+# Tool settings
+tools:
+  shell_timeout: 30        # seconds
+  output_max_bytes: 10240  # 10KB
+  work_dir: "${MINIBOT_WORK_DIR}"
+  search_backend: tavily   # tavily, searxng, google
+  search_api_key: "${TAVILY_API_KEY}"
+
+# Skill settings
+skills:
+  dir: "./skills"
+
+# Logging
+logging:
+  level: INFO
+  file: "./data/minibot.log"
